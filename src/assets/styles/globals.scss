@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("./font-faces.css");
+
+body {
+  font-family: PeydaWeb !important;
+  margin: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none !important;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  user-select: none;
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+}
+/* custome class for change stroke of navigation button svg*/
+.stroke_black {
+  stroke: #0e121b !important;
+}
+
+.d-done {
+  display: none !important;
+}
+/* direction */
+
+.dirRtl {
+  direction: rtl !important;
+}
+
+.dirLtr {
+  direction: ltr !important;
+}
+
+// checkox and Radio Button
+.click_Effect {
+  cursor: pointer;
+  &:active {
+    transform: scale(0.95);
+  }
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.1s;
+}
+
+.disabledBtn {
+  p {
+    color: #8a8888;
+  }
+}
+
+.checkbox {
+  &_TickIcon {
+    &::after {
+      content: url("/svg/tickIcon.svg");
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &_Indterminate {
+    &::after {
+      content: url("/svg/dashIcon.svg");
+      position: absolute;
+      left: 50%;
+      top: 25%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &:hover &_shape1 {
+    background-color: #eaeaeb;
+    transition: background-color 0.5s ease;
+  }
+
+  &:active &_shape1 {
+    background-color: #a8aaac !important;
+    transition: background-color 0.5s ease;
+  }
+
+  &:hover &_shape2 {
+    background-color: #eaeaeb;
+    transition: background-color 0.5s ease;
+  }
+}
+
+.radioButton {
+  &_checked::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #0c252b;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &_unChecked::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #0c252b;
+    opacity: 50%;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &:hover &_shape1 {
+    background-color: #eaeaeb;
+    transition: background-color 0.5s ease;
+  }
+  &:active &_shape1 {
+    background-color: #a8aaac !important;
+    transition: background-color 0.5s ease;
+  }
+  &:hover &_shape2 {
+    background-color: #eaeaeb;
+    transition: background-color 0.5s ease;
+  }
+}
