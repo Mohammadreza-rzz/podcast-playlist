@@ -2,9 +2,9 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/view/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/ui/view/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/ui/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -19,6 +19,9 @@ const config: Config = {
       full: "1024px",
     },
     extend: {
+      boxShadow: {
+        "submit-shadow": " 0px 0px 23px 2px rgba(103,136,255,0.77)",
+      },
       fontSize: {
         heading_2xs: [
           "20px",
@@ -178,6 +181,11 @@ const config: Config = {
         ],
       },
       colors: {
+        black: {
+          //
+          0: "#000",
+          50: "#020303",
+        },
         gray: {
           0: "#FFFFFF",
           50: "#F5F7FA",
@@ -201,17 +209,12 @@ const config: Config = {
           400: "#0E121B3D",
         },
         blue: {
-          50: "#F0FAFF",
+          50: "#6788FF",
+          800: "#1B1A38",
+          900: "#000517",
+          //
+
           100: "#D6E3FF",
-          200: "#C2D6FF",
-          300: "#99BBFF",
-          400: "#6694FF",
-          500: "#335CFF",
-          600: "#3559E9",
-          700: "#2547D0",
-          800: "#1F3BAD",
-          900: "#182F8C",
-          950: "#526f9d",
         },
         blue_alpha: {
           0: "#6694FF3D",
