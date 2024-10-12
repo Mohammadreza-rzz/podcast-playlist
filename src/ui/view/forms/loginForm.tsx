@@ -1,17 +1,18 @@
 "use client";
-import React from "react";
+import React, { useTransition } from "react";
 import Image from "next/image";
 import { cn } from "@/utils/functions";
-import { useForm } from "react-hook-form";
-import * as Yup from "yup";
-import { TextInput, SubmitButton } from "@/ui/components";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchemaType } from "@/types";
+import { useForm } from "react-hook-form";
+import { loginAction } from "@/actions/login";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { TextInput, SubmitButton } from "@/ui/components";
 import { loginSchema } from "@/validations/loginFormSchema";
 
 interface IProps {}
 
 const LoginForm: React.FC<IProps> = () => {
+  const [isPending, startTransition] = useTransition();
   const { handleSubmit, control, setValue, register, formState } =
     useForm<loginSchemaType>({
       resolver: yupResolver<any>(loginSchema),
@@ -21,7 +22,12 @@ const LoginForm: React.FC<IProps> = () => {
       },
     });
 
-  const submitHandler = () => {};
+  const submitHandler = (values: any) => {
+    startTransition(async () => {
+      const res = await loginAction(values);
+      console.log(res, "response");
+    });
+  };
 
   return (
     <div className="px-48 py-64 flex flex-col items-center">
@@ -37,12 +43,7 @@ const LoginForm: React.FC<IProps> = () => {
       <h2 className={"mt-8 text-heading_xs text-gray-100"}>
         Log in to dashboard
       </h2>
-      <form
-        onSubmit={handleSubmit(submitHandler)}
-        className="w-full"
-        action="
-      "
-      >
+      <form onSubmit={handleSubmit(submitHandler)} className="w-full">
         <TextInput
           hasErrorMessage={true}
           containerStyle="w-full"
@@ -65,7 +66,11 @@ const LoginForm: React.FC<IProps> = () => {
             disabled: false,
           }}
         />
-        <SubmitButton classes="w-full rounded-xs mt-8" label="Login" />
+        <SubmitButton
+          disabled={isPending}
+          classes="w-full rounded-xs mt-8"
+          label="Login"
+        />
       </form>
     </div>
   );

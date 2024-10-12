@@ -9,7 +9,7 @@ const AbstractShape: React.FC<IProps> = () => {
       muted
       loop
     >
-      <source src="/abstractVideo.mp4" type="video/mp4" />
+      <source src="/static/video/abstractVideo.mp4" type="video/mp4" />
     </video>
   );
 };
