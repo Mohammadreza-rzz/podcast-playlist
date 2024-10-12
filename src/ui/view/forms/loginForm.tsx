@@ -6,7 +6,7 @@ import { loginSchemaType } from "@/types";
 import { useForm } from "react-hook-form";
 import { loginAction } from "@/actions/login";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { TextInput, SubmitButton } from "@/ui/components";
+import { TextInput, SubmitButton, LoadingUi } from "@/ui/components";
 import { loginSchema } from "@/validations/loginFormSchema";
 
 interface IProps {}
@@ -30,7 +30,7 @@ const LoginForm: React.FC<IProps> = () => {
   };
 
   return (
-    <div className="px-48 py-64 flex flex-col items-center">
+    <div className="px-48 py-64 flex flex-col items-center relative">
       <span className={cn("!inline-block w-fit p-4 bg-blue-800 rounded-sm")}>
         <Image
           className="object-cover"
@@ -72,6 +72,7 @@ const LoginForm: React.FC<IProps> = () => {
           label="Login"
         />
       </form>
+      {isPending && <LoadingUi classname="w-[950px] h-[1060px]" />}
     </div>
   );
 };

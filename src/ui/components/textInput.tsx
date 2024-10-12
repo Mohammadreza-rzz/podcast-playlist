@@ -99,9 +99,9 @@ const CustomInput: React.FC<IProps> = ({
             !!disabled
               ? "placeholder:text-gray-400 "
               : "placeholder:text-gray-100"
-          }  text-paragraph_lg  w-full ${
-            isFocus && "text-gray-300"
-          } text-gray-300 bg-transparent relative`}
+          }  text-paragraph_lg  w-full 
+        
+           text-gray-300 bg-transparent relative`}
         />
         {!!hasErrorMessage && !!errors[name]?.message && !disabled && (
           <span className="inline-flex justify-start absolute top-full !left-0 mt-4 w-full">

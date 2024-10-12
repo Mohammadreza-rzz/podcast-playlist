@@ -14,12 +14,9 @@ export const loginAction = async (values: loginSchemaType) => {
     strict: true,
   });
 
-  const result = await signIn("credentials", {
+  await signIn("credentials", {
     userName: validationFields.userName as string,
     password: validationFields.password as string,
   });
-
-  console.log(result, "resulttttttttttttttttttt");
-
   return { message: "succesful" };
 };
