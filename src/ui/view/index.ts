@@ -6,3 +6,7 @@ export { default as SideBarNavbarBox } from "./sideBarNavbarBox";
 export { default as SavedItemBox } from "./savedItemBox";
 export { default as SavedItem } from "./savedItem";
 export { default as MainHeader } from "./mainHaader";
+export { default as LongCards } from "./longCards";
+export { default as TopSectionView } from "./topSectionView";
+export { default as ScrollableXView } from "./scrollableXView";
+export { default as Poster } from "./poster";

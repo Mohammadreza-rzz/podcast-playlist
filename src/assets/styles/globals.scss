@@ -42,3 +42,7 @@ body::-webkit-scrollbar {
   transition-timing-function: ease-in-out;
   transition-duration: 0.1s;
 }
+
+.swipeable-x {
+  -webkit-overflow-scrolling: touch;
+}

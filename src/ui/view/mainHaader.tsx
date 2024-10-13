@@ -15,7 +15,7 @@ const MainHeader: React.FC<IProps> = () => {
   });
   const pathName = usePathname();
   return (
-    <header className="flex justify-between py-8 px-4 bg-orange-400">
+    <header className="flex justify-between py-8 px-4 ">
       <div>
         <span className="inline-flex items-center">
           <ThreeDotsIcon classnames="h-8 w-8 fill-blue-300" />

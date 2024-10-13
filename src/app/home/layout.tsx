@@ -9,7 +9,7 @@ export default function HomePageLayout({
   return (
     <section className="flex w-full space-x-2">
       <SideBar containerClass="bg-red-500 w-[350px]" />
-      <main className="bg-blue-50 flex-1">
+      <main className="bg-gray-900 flex-1">
         <MainHeader />
         {children}
       </main>
