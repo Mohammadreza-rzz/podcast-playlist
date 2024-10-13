@@ -86,6 +86,7 @@ const CustomInput: React.FC<IProps> = ({
           isFocus && "border-primery-500"
         } flex w-full  border-[2px]  relative`}
       >
+        {!!RIcon && RIcon}
         <input
           {...field}
           {...rest}

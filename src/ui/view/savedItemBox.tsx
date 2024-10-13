@@ -7,8 +7,6 @@ import { SavedItem } from "@/ui/view";
 
 interface IProps {}
 
-// 🔥💡🎨
-
 const SavedItemBox: React.FC<IProps> = () => {
   return (
     <div className="py-5 bg-gray-900 mt-2 ">

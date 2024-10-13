@@ -1,5 +1,5 @@
 import React from "react";
-import { SideBar } from "@/ui/view";
+import { SideBar, MainHeader } from "@/ui/view";
 
 export default function HomePageLayout({
   children,
@@ -9,7 +9,10 @@ export default function HomePageLayout({
   return (
     <section className="flex w-full space-x-2">
       <SideBar containerClass="bg-red-500 w-[350px]" />
-      <main className="bg-blue-50 flex-1">{children}</main>
+      <main className="bg-blue-50 flex-1">
+        <MainHeader />
+        {children}
+      </main>
     </section>
   );
 }
