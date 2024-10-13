@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/assets/styles/globals.scss";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-black-0 grid place-items-center h-screen">
-        <main className="w-[1900px] mx-auto my-28 h-[1060px]">{children}</main>
+        <SessionProvider>
+          <main className="w-[1900px] mx-auto my-28 h-[1060px]">
+            {children}
+          </main>
+        </SessionProvider>
       </body>
     </html>
   );
