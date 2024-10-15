@@ -36,7 +36,7 @@ const LongCards: React.FC<IProps> = ({ containerClass }) => {
       <div className="translate-y-1 !mr-auto flex-1">
         <h3 className="text-heading_2xs text-gray-100">Past Weekend</h3>
         <h5 className="text-paragraph_md mb-1 text-gray-500">Theo Von</h5>
-        <p className="text-gray-500 text-paragraph_md w-4/5">
+        <p className="text-gray-500 text-paragraph_md w-4/5 line-clamp-2">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
           molestias tempore nemo, maxime neque id, corrupti
         </p>

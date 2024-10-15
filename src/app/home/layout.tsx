@@ -1,5 +1,5 @@
 import React from "react";
-import { SideBar, MainHeader, SideModal } from "@/ui/view";
+import { SideBar, MainHeader, SideModal, MusicPlayerToast } from "@/ui/view";
 
 export default function HomePageLayout({
   children,
@@ -7,11 +7,13 @@ export default function HomePageLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className="flex w-full space-x-2 ">
+    <section className="flex w-full space-x-2  ">
       <SideBar containerClass="bg-red-500 w-[350px]" />
       <main className="bg-gray-900 flex-1 relative">
         <MainHeader />
+
         {children}
+        <MusicPlayerToast />
         <SideModal />
       </main>
     </section>

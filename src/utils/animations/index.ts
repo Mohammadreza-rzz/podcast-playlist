@@ -52,3 +52,14 @@ export const sideModalVarient = {
     },
   },
 };
+
+export const fadeInVariant = {
+  initial: {
+    opacity: 0,
+    y: "100%",
+  },
+  active: {
+    opacity: 1,
+    y: "-25%",
+  },
+};

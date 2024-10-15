@@ -1,19 +1,42 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { IconButton, Progressbar } from "@/ui/components";
 import { PlayListItem } from "@/ui/view";
 import { ArrowIcon, SavedIcon, Xicon } from "@/ui/components/icons";
 import { cn } from "@/utils/functions";
 import Image from "next/image";
+import { useToast, useSideModal } from "@/hooks";
 
-interface IProps {}
+interface IProps {
+  isSaved?: boolean;
+}
 
-const MusicPlayer: React.FC<IProps> = () => {
+const MusicPlayer: React.FC<IProps> = ({ isSaved = false }) => {
+  const { openToast } = useToast();
+  const { closeModal } = useSideModal();
+  const [saved, setSaved] = useState(!!isSaved ? isSaved : false);
+
+  const changeSaveStatus = () => {
+    if (saved) {
+      console.log("unSaved");
+      setSaved(false);
+    } else {
+      console.log("saved");
+      setSaved(true);
+    }
+  };
+
   return (
     <div className="z-20 relative">
       <header className={cn("bg-gray-950 p-5 flex justify-between ")}>
         <div className="flex items-center space-x-3">
-          <IconButton containerClass="p-1.5 bg-gray-700 rounded-full">
+          <IconButton
+            clickHandler={() => {
+              openToast();
+              closeModal();
+            }}
+            containerClass="p-1.5 bg-gray-700 rounded-full"
+          >
             <ArrowIcon classnames="w-6 h-6 fill-gray-200 rotate-90" />
           </IconButton>
 
@@ -22,7 +45,22 @@ const MusicPlayer: React.FC<IProps> = () => {
           </h3>
         </div>
         <div className="flex items-center space-x-2">
-          <IconButton containerClass="p-1.5 bg-gray-700 rounded-full">
+          <IconButton
+            clickHandler={changeSaveStatus}
+            containerClass={cn(
+              "p-1.5 bg-gray-700 rounded-full",
+              saved && "bg-gray-100"
+            )}
+          >
+            <SavedIcon
+              classnames="w-6 h-6 fill-gray-900 -rotate-270"
+              stroke={saved ? "#111" : "#eee"}
+            />
+          </IconButton>
+          <IconButton
+            clickHandler={closeModal}
+            containerClass="p-1.5 bg-gray-700 rounded-full"
+          >
             <Xicon classnames="w-6 h-6 fill-gray-200 -rotate-270" />
           </IconButton>
         </div>

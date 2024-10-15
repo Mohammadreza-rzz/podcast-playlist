@@ -15,3 +15,4 @@ export { default as BackwardIcon } from "./backwardIcon";
 export { default as JumpToStart } from "./jumpToStart";
 export { default as NextIcon } from "./nextIcon";
 export { default as Xicon } from "./xIcon";
+export { default as HeadphoneIcon } from "./headphonIcon";

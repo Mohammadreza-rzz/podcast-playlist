@@ -13,3 +13,5 @@ export { default as Poster } from "./poster";
 export { default as SideModal } from "./sideModal";
 export { default as MusicPlayer } from "./musicPlayer";
 export { default as PlayListItem } from "./palyListItem";
+export { default as MusicPlayerToast } from "./musicPlayerToast";
+export { default as BookDetails } from "./bookDetailsView";
