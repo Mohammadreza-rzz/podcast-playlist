@@ -9,9 +9,17 @@ import { useToast, useSideModal } from "@/hooks";
 
 interface IProps {
   isSaved?: boolean;
+  title?: string;
+  subTitle?: string;
+  srcImage?: string | null;
 }
 
-const MusicPlayer: React.FC<IProps> = ({ isSaved = false }) => {
+const MusicPlayer: React.FC<IProps> = ({
+  isSaved = false,
+  title = "",
+  srcImage = "/static/images/poster.jpg",
+  subTitle = "",
+}) => {
   const { openToast } = useToast();
   const { closeModal } = useSideModal();
   const [saved, setSaved] = useState(!!isSaved ? isSaved : false);
@@ -41,7 +49,7 @@ const MusicPlayer: React.FC<IProps> = ({ isSaved = false }) => {
           </IconButton>
 
           <h3 className="text-paragraph_xl text-gray-100 translate-y-0.5">
-            HumberMan Lab
+            {title}
           </h3>
         </div>
         <div className="flex items-center space-x-2">
@@ -68,7 +76,7 @@ const MusicPlayer: React.FC<IProps> = ({ isSaved = false }) => {
       <section className="px-6">
         <div className="w-full flex justify-center py-[68px]">
           <Image
-            src="/static/images/poster2.jpg"
+            src={!!srcImage ? srcImage : "/static/images/poster2.jpg"}
             width={180}
             height={180}
             alt="music-poster"
@@ -77,10 +85,8 @@ const MusicPlayer: React.FC<IProps> = ({ isSaved = false }) => {
         </div>
         <div id="info">
           <h4 className="text-gray-500 text-paragraph_lg mb-1">chapter 7</h4>
-          <h2 className="text-gray-200 text-heading_xs mb-2">
-            Rejecting Social Norms for Justice
-          </h2>
-          <h3 className="text-gray-200 text-paragraph_xl">The daily stoice</h3>
+          <h2 className="text-gray-200 text-heading_xs mb-2">{title}</h2>
+          <h3 className="text-gray-200 text-paragraph_xl">{subTitle}</h3>
         </div>
         <Progressbar />
         <h2 className="text-gray-100 text-heading_xs mt-6">List Of Chapters</h2>

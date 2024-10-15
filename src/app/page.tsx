@@ -10,7 +10,5 @@ export default function Home() {
     });
   };
 
-  return (
-    <div onClick={handleLogout} className="text-gray-50 p-5 bg-red-400"></div>
-  );
+  return <div onClick={handleLogout} className="text-gray-50 p-5"></div>;
 }

@@ -8,9 +8,17 @@ import { longCartWrapperVariants } from "@/utils/animations";
 
 interface IProps {
   index?: string;
+  title?: string;
+  subTitle?: string;
+  srcImage?: string | null;
 }
 
-const BookDetailsView: React.FC<IProps> = ({ index }) => {
+const BookDetailsView: React.FC<IProps> = ({
+  index,
+  title = "",
+  srcImage = "/static/images/poster.jpg",
+  subTitle = "",
+}) => {
   const { openModal, isActive } = useSideModal();
   return (
     <div className="mt-14  px-8">
@@ -21,7 +29,7 @@ const BookDetailsView: React.FC<IProps> = ({ index }) => {
         className="flex items-center space-x-6"
       >
         <Image
-          src="/static/images/poster2.jpg"
+          src={!!srcImage ? srcImage : "/static/images/poster.jpg"}
           width={200}
           height={200}
           alt="music-poster"
@@ -29,9 +37,9 @@ const BookDetailsView: React.FC<IProps> = ({ index }) => {
         />
         <div className="!mr-auto">
           <h1 className="text-heading_sm font-semibold text-gray-100">
-            The Lean Startup
+            {title}
           </h1>
-          <h3 className="text-heading_xs text-gray-700">Kevin Horsely</h3>
+          <h3 className="text-heading_xs text-gray-700">{subTitle}</h3>
         </div>
         <div
           onClick={openModal}

@@ -11,11 +11,13 @@ interface Toast {
 interface ModalState {
   sideModal: sideModal;
   toast: Toast;
+  data: { title: string; by: string; srcImage: string; isSaved: boolean };
 }
 
 const initialState: ModalState = {
   sideModal: { isActive: false },
   toast: { isActive: false },
+  data: { title: "", by: "", srcImage: "", isSaved: false },
 };
 
 const ModalSlice = createSlice({
@@ -36,10 +38,21 @@ const ModalSlice = createSlice({
     toastclose(state) {
       state.toast.isActive = false;
     },
+    setData(
+      state,
+      actions: PayloadAction<{
+        title: string;
+        by: string;
+        srcImage: string;
+        isSaved: boolean;
+      }>
+    ) {
+      state.data = actions.payload;
+    },
   },
 });
 
-export const { sideModalOpen, sideModalclose, toastOpen, toastclose } =
+export const { sideModalOpen, sideModalclose, toastOpen, toastclose, setData } =
   ModalSlice.actions;
 
 export const modalReducer = ModalSlice.reducer;

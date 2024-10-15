@@ -1,12 +1,20 @@
 import React from "react";
 import { TopSectionView, ScrollableXView } from "@/ui/view";
+import { getPlayList } from "@/utils/apiFunc";
+import { playListItemType } from "@/types";
 
-const Podcastpage: React.FC = () => {
+const Podcastpage: React.FC = async () => {
+  const podcastData = await getPlayList("podcast");
   return (
     <div className="px-8 overflow-y-auto h-[888px]">
-      <TopSectionView />
-      <ScrollableXView title="For You" />
-      <ScrollableXView title="Recently Played" />
+      <TopSectionView
+        items={Array.from(
+          { length: 4 },
+          (_, index: number) => podcastData.data[index]
+        )}
+      />
+      <ScrollableXView items={podcastData?.data} title="For You" />
+      <ScrollableXView items={podcastData?.data} title="Recently Played" />
     </div>
   );
 };

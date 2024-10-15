@@ -18,21 +18,12 @@ const MainHeader: React.FC<IProps> = () => {
     },
   });
   const pathName = usePathname();
-  const { closeModal, openModal } = useSideModal();
   return (
     <motion.header
       variants={longCartWrapperVariants}
       animate={!!isActive ? "active" : "initial"}
       className="flex justify-between py-8 mx-8 "
     >
-      <div className="absolute">
-        <div className="bg-red-500 p-3 " onClick={closeModal}>
-          close
-        </div>
-        <div className="bg-green-400 p-3 " onClick={openModal}>
-          open
-        </div>
-      </div>
       <div>
         <span className="inline-flex items-center">
           <ThreeDotsIcon classnames="h-8 w-8 fill-blue-300" />
@@ -44,7 +35,7 @@ const MainHeader: React.FC<IProps> = () => {
               : "Listlearner"}
           </h1>
         </span>
-        <div className="flex space-x-2 mt-4">
+        <div className="flex space-x-2 mt-5">
           <Badge title="All" classname="bg-blue-300" />
           <Badge title="Productivity" sticker="💡" />
           <Badge title="Creative" sticker="🎨" />
@@ -57,7 +48,7 @@ const MainHeader: React.FC<IProps> = () => {
           <Badge title="100" sticker="❤️" />
         </span>
         <TextInput
-          containerStyle="min-w-[350px] mt-3"
+          containerStyle="min-w-[350px] mt-4"
           InputContainerStyle="border-none bg-gray-600 hover:bg-gray-600/70 rounded-xs"
           RIcon={<SearchIcon classnames="w-6 h-6 fill-gray-100 mr-2" />}
           placeholder="What do you  want to learn today?"

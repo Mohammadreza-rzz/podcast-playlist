@@ -9,7 +9,7 @@ import { sideModalVarient } from "@/utils/animations";
 interface IProps {}
 
 const SideModal: React.FC<IProps> = () => {
-  const { isActive } = useSideModal();
+  const { isActive, data } = useSideModal();
 
   return (
     <motion.div
@@ -21,7 +21,12 @@ const SideModal: React.FC<IProps> = () => {
       )}
     >
       <span className="absolute h-full w-full bg-gray-950/90 left-0 top-0 z-10  "></span>
-      <MusicPlayer />
+      <MusicPlayer
+        isSaved={data.isSaved}
+        title={data?.title}
+        srcImage={data.srcImage}
+        subTitle={data.by}
+      />
     </motion.div>
   );
 };

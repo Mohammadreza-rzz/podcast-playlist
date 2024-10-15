@@ -7,10 +7,10 @@ export type loginSchemaType = {
 export type userDataType = {
   accessToken: string;
   refreshToken: string;
-  id?: string
-  name?: string | null
-  email?: string | null
-  image?: string | null
+  id?: string;
+  name?: string | null;
+  email?: string | null;
+  image?: string | null;
 };
 
 export type tokenDataType = {
@@ -18,4 +18,13 @@ export type tokenDataType = {
   sub: string;
   email: string;
   picture: string;
+};
+
+export type playListItemType = {
+  id: number;
+  title: string;
+  isSaved: boolean;
+  type: "book" | "podcast";
+  by: string;
+  poster: string;
 };

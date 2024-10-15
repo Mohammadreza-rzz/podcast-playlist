@@ -4,7 +4,7 @@ import { LoginForm } from "@/ui/view";
 
 const LoginPage = () => {
   return (
-    <section className="bg-red-50 flex h-full">
+    <section className="flex h-full">
       <div className="flex-1 bg-black-50">
         <AbstractShape />
       </div>

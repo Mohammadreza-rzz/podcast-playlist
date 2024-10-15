@@ -1,11 +1,13 @@
 "use client";
 import React, { useState, useRef } from "react";
 import { Poster } from "@/ui/view";
+import { playListItemType } from "@/types";
 interface IProps {
   title: string;
+  items?: playListItemType[];
 }
 
-const ScrollableXView: React.FC<IProps> = ({ title = "" }) => {
+const ScrollableXView: React.FC<IProps> = ({ title = "", items }) => {
   const [isDown, setIsDown] = useState<boolean>(false);
   const [startX, setStartX] = useState<number>(0);
   const [scrollLeft, setScrollLeft] = useState<number>(0);
@@ -71,17 +73,18 @@ const ScrollableXView: React.FC<IProps> = ({ title = "" }) => {
         onMouseMove={handleMouseMove}
         className="w-[1478px] flex space-x-3 overflow-x-scroll swipeable-x  whitespace-nowrap mt-5"
       >
-        <Poster />
-        <Poster />
-        <Poster />
-        <Poster />
-        <Poster />
-        <Poster />
-        <Poster />
-        <Poster />
-        <Poster />
-        <Poster />
-        <Poster />
+        {!!items?.length &&
+          items?.map((item) => (
+            <Poster
+              isSaved={item?.isSaved}
+              title={item?.title}
+              id={item?.id}
+              srcImage={item?.poster}
+              key={item?.id}
+              subTitle={item?.by}
+              type={item?.type}
+            />
+          ))}
       </div>
     </div>
   );

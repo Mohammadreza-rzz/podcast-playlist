@@ -1,16 +1,21 @@
+"use server";
 import React from "react";
 import { cn } from "@/utils/functions";
+import { playListItemType } from "@/types";
 import { SideBarNavbarBox, SavedItemBox } from "@/ui/view";
+import { getPlayList } from "@/utils/apiFunc";
 
 interface IProps {
   containerClass?: string;
 }
 
-const SideBar: React.FC<IProps> = ({ containerClass }) => {
+const SideBar: React.FC<IProps> = async ({ containerClass }) => {
+  const savedData = await getPlayList("book");
+  console.log(savedData, "savedDaa");
   return (
     <aside className={cn(containerClass)}>
       <SideBarNavbarBox />
-      <SavedItemBox />
+      <SavedItemBox item={!!savedData.data.length ? savedData.data : []} />
     </aside>
   );
 };

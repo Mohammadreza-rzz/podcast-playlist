@@ -4,10 +4,13 @@ import React from "react";
 import { SavedIcon } from "../components/icons";
 import { Badge } from "@/ui/components";
 import { SavedItem } from "@/ui/view";
+import { playListItemType } from "@/types";
 
-interface IProps {}
+interface IProps {
+  item: playListItemType[];
+}
 
-const SavedItemBox: React.FC<IProps> = () => {
+const SavedItemBox: React.FC<IProps> = ({ item }) => {
   return (
     <div className="py-5 bg-gray-900 mt-2 ">
       <span className="inline-flex space-x-3  ml-3 px-4">
@@ -20,12 +23,20 @@ const SavedItemBox: React.FC<IProps> = () => {
         <Badge title="Podcast" />
       </div>
       <div className="flex flex-col space-y-2 mt-6 h-[520px] overflow-auto">
-        <SavedItem />
-        <SavedItem />
-        <SavedItem />
-        <SavedItem />
-        <SavedItem />
-        <SavedItem />
+        {!!item.length &&
+          item
+            ?.filter((item) => !!item.isSaved)
+            .map((item) => (
+              <SavedItem
+                isSaved={item?.isSaved}
+                imageSrc={item?.poster}
+                by={item?.by}
+                id={item?.id}
+                key={item?.id}
+                type={item?.type}
+                title={item?.title}
+              />
+            ))}
       </div>
     </div>
   );
