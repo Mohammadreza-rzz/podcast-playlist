@@ -3,7 +3,6 @@ import { BookDetails } from "@/ui/view";
 import { getBookWithId } from "@/utils/apiFunc";
 
 const BooksDetailsPage = async ({ params }: { params: { id: string } }) => {
-  console.log(params, "params");
   const data = await getBookWithId(params.id);
 
   return (

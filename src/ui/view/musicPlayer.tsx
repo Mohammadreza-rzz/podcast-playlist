@@ -26,10 +26,8 @@ const MusicPlayer: React.FC<IProps> = ({
 
   const changeSaveStatus = () => {
     if (saved) {
-      console.log("unSaved");
       setSaved(false);
     } else {
-      console.log("saved");
       setSaved(true);
     }
   };

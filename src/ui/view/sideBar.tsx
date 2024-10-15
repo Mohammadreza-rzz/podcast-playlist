@@ -11,7 +11,7 @@ interface IProps {
 
 const SideBar: React.FC<IProps> = async ({ containerClass }) => {
   const savedData = await getPlayList("book");
-  console.log(savedData, "savedDaa");
+
   return (
     <aside className={cn(containerClass)}>
       <SideBarNavbarBox />

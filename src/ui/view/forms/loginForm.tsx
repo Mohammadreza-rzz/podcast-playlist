@@ -25,7 +25,6 @@ const LoginForm: React.FC<IProps> = () => {
   const submitHandler = (values: any) => {
     startTransition(async () => {
       const res = await loginAction(values);
-      console.log(res, "response");
     });
   };
 
