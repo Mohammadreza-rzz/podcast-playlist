@@ -4,18 +4,35 @@ import { ThreeDotsIcon, SearchIcon } from "@/ui/components/icons";
 import { usePathname } from "next/navigation";
 import { Badge, TextInput } from "@/ui/components";
 import { useForm } from "react-hook-form";
+import { useSideModal } from "@/hooks";
+import { motion } from "framer-motion";
+import { longCartWrapperVariants } from "@/utils/animations";
 
 interface IProps {}
 
 const MainHeader: React.FC<IProps> = () => {
+  const { isActive } = useSideModal();
   const { control } = useForm({
     defaultValues: {
       searchBox: "",
     },
   });
   const pathName = usePathname();
+  const { closeModal, openModal } = useSideModal();
   return (
-    <header className="flex justify-between py-8 px-4 ">
+    <motion.header
+      variants={longCartWrapperVariants}
+      animate={!!isActive ? "active" : "initial"}
+      className="flex justify-between py-8 mx-8 "
+    >
+      <div className="absolute">
+        <div className="bg-red-500 p-3 " onClick={closeModal}>
+          close
+        </div>
+        <div className="bg-green-400 p-3 " onClick={openModal}>
+          open
+        </div>
+      </div>
       <div>
         <span className="inline-flex items-center">
           <ThreeDotsIcon classnames="h-8 w-8 fill-blue-300" />
@@ -34,7 +51,7 @@ const MainHeader: React.FC<IProps> = () => {
           <Badge title="Trend" sticker="🔥" />
         </div>
       </div>
-      <div className="flex flex-col mr-4">
+      <div className="flex flex-col">
         <span className="inline-flex space-x-2 justify-end">
           <Badge title="90" sticker="⚡️" />
           <Badge title="100" sticker="❤️" />
@@ -51,7 +68,7 @@ const MainHeader: React.FC<IProps> = () => {
           }}
         />
       </div>
-    </header>
+    </motion.header>
   );
 };
 export default MainHeader;

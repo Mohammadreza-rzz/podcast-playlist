@@ -10,3 +10,6 @@ export { default as LongCards } from "./longCards";
 export { default as TopSectionView } from "./topSectionView";
 export { default as ScrollableXView } from "./scrollableXView";
 export { default as Poster } from "./poster";
+export { default as SideModal } from "./sideModal";
+export { default as MusicPlayer } from "./musicPlayer";
+export { default as PlayListItem } from "./palyListItem";

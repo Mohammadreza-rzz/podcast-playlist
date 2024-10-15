@@ -1,7 +1,11 @@
+"use client";
 import React from "react";
 import { cn } from "@/utils/functions";
 import Image from "next/image";
 import { ArrowIcon } from "@/ui/components/icons";
+import { useSideModal } from "@/hooks";
+import { motion } from "framer-motion";
+import { cartlVarient } from "@/utils/animations";
 
 interface IProps {
   containerClass?: string;
@@ -11,8 +15,12 @@ interface IProps {
 }
 
 const LongCards: React.FC<IProps> = ({ containerClass }) => {
+  const { isActive } = useSideModal();
   return (
-    <div
+    <motion.div
+      variants={cartlVarient}
+      initial={"initial"}
+      animate={!!isActive ? "active" : "initial"}
       className={cn(
         "flex items-center space-x-3 p-4 rounded-sm hover:opacity-90 hover:scale-[1.01] transition-all duration-500 cursor-pointer",
         containerClass
@@ -34,7 +42,7 @@ const LongCards: React.FC<IProps> = ({ containerClass }) => {
         </p>
       </div>
       <ArrowIcon classnames="w-7 h-7 fill-gray-800" />
-    </div>
+    </motion.div>
   );
 };
 

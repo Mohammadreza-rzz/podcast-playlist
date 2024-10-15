@@ -6,7 +6,7 @@ interface IProps {
   children?: React.ReactNode;
   containerClass?: string;
   disabled?: boolean;
-  clickHandler?: (ev?: React.MouseEvent<HTMLButtonElement>) => void;
+  clickHandler?: (ev?: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const IconButton: React.FC<IProps> = ({
@@ -16,16 +16,16 @@ const IconButton: React.FC<IProps> = ({
   clickHandler = () => {},
 }) => {
   return (
-    <button
+    <div
       onClick={clickHandler}
       className={cn(
-        "click_Effect",
+        "inline-flex items-center justify-center cursor-pointer click_Effect",
         containerClass,
         !!disabled && "bg-slate-500/20"
       )}
     >
       {children}
-    </button>
+    </div>
   );
 };
 
