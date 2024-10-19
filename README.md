@@ -66,8 +66,10 @@ This project is a template for a playlist of podcasts and audiobooks.
 Authentication: Initially, authentication is required to access the application. You will be redirected to the login page if you attempt to access any other route without logging in. After logging in, you are redirected to the home page.
 
 Login credentials:
+
 Username: emilys
 Password: emilyspass
+
 Home Page: After login, you are redirected to /home, which shows a default view populated with mock data.
 
 Podcasts and Books:
