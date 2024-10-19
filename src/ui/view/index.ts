@@ -15,3 +15,4 @@ export { default as MusicPlayer } from "./musicPlayer";
 export { default as PlayListItem } from "./palyListItem";
 export { default as MusicPlayerToast } from "./musicPlayerToast";
 export { default as BookDetails } from "./bookDetailsView";
+export { default as SearchResultModal } from "./searchResultModal";

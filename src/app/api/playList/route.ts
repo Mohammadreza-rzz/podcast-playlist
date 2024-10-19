@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { playList } from "@/mock";
+import { playListItemType } from "@/types";
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
@@ -8,11 +9,17 @@ export async function GET(request: Request) {
 
   const type = params.get("type");
 
-  if (type === "all") {
-    return NextResponse.json(playList, { status: 400 });
-  }
+  const searchValue = params.get("searchValue");
 
-  const data = playList.filter((item) => item.type === type);
+  let data: any = [];
+  if (!searchValue) {
+    if (type === "all") {
+      return NextResponse.json(playList, { status: 200 });
+    }
+    data = playList.filter((item) => item.type === type);
+  } else {
+    data = playList.filter((item) => item.title.includes(searchValue));
+  }
 
   return NextResponse.json({ data });
 }

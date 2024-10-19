@@ -49,6 +49,7 @@ const CustomInput: React.FC<IProps> = ({
   hasIcon,
   hasInfoMessage,
   hasSeccessMessage,
+
   ...rest
 }) => {
   const { field, formState } = useController(inputProps);
