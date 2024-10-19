@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Custom404() {
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center bg-gray-100 bg-gray-600">
+    <div className="w-full h-full flex flex-col justify-center items-center  bg-gray-600">
       <h1 className="text-9xl font-extrabold text-gray-900 tracking-widest">
         404
       </h1>

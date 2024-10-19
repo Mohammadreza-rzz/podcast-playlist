@@ -37,6 +37,7 @@ const LoginForm: React.FC<IProps> = () => {
           alt="logo"
           width={50}
           height={25}
+          priority={false}
         />
       </span>
       <h2 className={"mt-8 text-heading_xs text-gray-100"}>

@@ -28,6 +28,7 @@ const ControlPanel: React.FC<IProps> = () => {
             width={32}
             height={32}
             className="w-8 h-8 rounded-full"
+            priority={false}
           />
         ) : (
           <span className="bg-slate-100 inline-flex justify-center items-center rounded-full p-1.5">

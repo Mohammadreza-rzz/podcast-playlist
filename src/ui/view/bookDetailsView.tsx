@@ -34,6 +34,7 @@ const BookDetailsView: React.FC<IProps> = ({
           height={200}
           alt="music-poster"
           className="w-[200px] h-[200px] object-cover rounded-xs overflow-hidden"
+          priority={false}
         />
         <div className="!mr-auto">
           <h1 className="text-heading_sm font-semibold text-gray-100">

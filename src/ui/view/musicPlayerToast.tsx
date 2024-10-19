@@ -24,6 +24,7 @@ const MusicPlayerToast: React.FC<IProps> = () => {
         width={100}
         height={100}
         className="w-[100px] h-[100px] rounded-sm"
+        priority={false}
       />
       <div className="mt-2 !mr-auto">
         <h3 className="text-heading_2xs text-gray-100">{data?.title}</h3>

@@ -79,6 +79,7 @@ const MusicPlayer: React.FC<IProps> = ({
             height={180}
             alt="music-poster"
             className="w-[180px] h-[180px] object-cover rounded-xs overflow-hidden"
+            priority={false}
           />
         </div>
         <div id="info">

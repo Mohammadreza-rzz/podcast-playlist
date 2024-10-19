@@ -12,6 +12,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body className="bg-black-0 grid place-items-center h-screen">
         <SessionProvider>
           <Provider store={store}>

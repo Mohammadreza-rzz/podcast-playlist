@@ -60,6 +60,7 @@ const LongCards: React.FC<IProps> = ({
         height={100}
         alt="music-poster"
         className="w-[100px] h-[100px] object-cover rounded-xs overflow-hidden"
+        priority={false}
       />
       <div className="translate-y-1 !mr-auto flex-1">
         <h3 className="text-heading_2xs text-gray-100">{title}</h3>

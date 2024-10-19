@@ -48,6 +48,7 @@ const Poster: React.FC<IProps> = ({
         height={150}
         alt="music-poster"
         className="w-[150px] h-[150px] object-cover rounded-xs overflow-hidden"
+        priority={false}
       />
       <div className="translate-y-1 !mr-auto">
         <h3 className="text-paragraph_xl text-[18px] mt-2 text-gray-100 max-w-fit overflow-hidden">
